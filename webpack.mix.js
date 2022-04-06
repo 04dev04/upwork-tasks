@@ -50,7 +50,10 @@ mix.webpackConfig({
 
 mix.js('resources/js/app.js', 'public/js').react()
   .extract(['@popperjs/core', 'axios', 'bootstrap', 'clsx', 'font-awesome', 'history', 'jquery', 'lodash', 'moment', 'prop-types', 'react', 'react-document-title', 'react-dom', 'react-loadable', 'react-redux', 'react-router-dom', 'reactstrap', 'redux', 'redux-thunk', 'ree-validate'])
-  .sass('resources/sass/app.scss', 'public/css')
+  // .sass('resources/sass/app.scss', 'public/css')
+  .postCss('resources/css/app.css', 'public/css', [
+      require('tailwindcss'),
+  ])
   .sourceMaps(false, 'source-map')
 
 if (mix.inProduction()) {
